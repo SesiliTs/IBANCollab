@@ -23,6 +23,8 @@
 		0BC453B82B5006A200B0A8FF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC453B72B5006A200B0A8FF /* FirebaseFirestore */; };
 		0BC453BA2B5006A200B0A8FF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC453B92B5006A200B0A8FF /* FirebaseFirestoreSwift */; };
 		0BC453BC2B5006A200B0A8FF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC453BB2B5006A200B0A8FF /* FirebaseStorage */; };
+		102226D82B5036F8002EACA1 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D72B5036F8002EACA1 /* CustomUITextField.swift */; };
+		102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D92B503741002EACA1 /* CustomUIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		0BC453982B50018700B0A8FF /* ColorFromHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromHex.swift; sourceTree = "<group>"; };
 		0BC4539D2B50020400B0A8FF /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		0BC453AD2B5005F500B0A8FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		102226D72B5036F8002EACA1 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
+		102226D92B503741002EACA1 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			children = (
 				0BC453AF2B50063800B0A8FF /* App */,
 				0BC453962B50012600B0A8FF /* Scenes */,
+				102226D62B503683002EACA1 /* Components */,
 				0BC4539C2B5001E700B0A8FF /* Services */,
 				0BC453972B50017200B0A8FF /* Extensions */,
 				0BC453942B5000CA00B0A8FF /* Resources */,
@@ -142,6 +147,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		102226D62B503683002EACA1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				102226D72B5036F8002EACA1 /* CustomUITextField.swift */,
+				102226D92B503741002EACA1 /* CustomUIButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,9 +244,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC453852B5000B100B0A8FF /* LoginViewController.swift in Sources */,
+				102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */,
 				0BC453992B50018700B0A8FF /* ColorFromHex.swift in Sources */,
 				0BC453812B5000B100B0A8FF /* AppDelegate.swift in Sources */,
 				0BC4539E2B50020400B0A8FF /* AuthenticationManager.swift in Sources */,
+				102226D82B5036F8002EACA1 /* CustomUITextField.swift in Sources */,
 				0BC453832B5000B100B0A8FF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
