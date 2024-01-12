@@ -25,6 +25,12 @@
 		0BC453BC2B5006A200B0A8FF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC453BB2B5006A200B0A8FF /* FirebaseStorage */; };
 		102226D82B5036F8002EACA1 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D72B5036F8002EACA1 /* CustomUITextField.swift */; };
 		102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D92B503741002EACA1 /* CustomUIButton.swift */; };
+		102226DD2B51AD35002EACA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 102226DC2B51AD35002EACA1 /* LaunchScreen.storyboard */; };
+		102226DF2B51AE8C002EACA1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226DE2B51AE8C002EACA1 /* SignUpViewController.swift */; };
+		102226E12B51AE9F002EACA1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226E02B51AE9F002EACA1 /* SignUpViewModel.swift */; };
+		102226E42B51B85B002EACA1 /* SignUpPageRegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226E32B51B85B002EACA1 /* SignUpPageRegisterUserRequest.swift */; };
+		102226E62B51D09A002EACA1 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226E52B51D09A002EACA1 /* Validator.swift */; };
+		102226E82B51EF63002EACA1 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226E72B51EF63002EACA1 /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +45,12 @@
 		0BC453AD2B5005F500B0A8FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		102226D72B5036F8002EACA1 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		102226D92B503741002EACA1 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
+		102226DC2B51AD35002EACA1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		102226DE2B51AE8C002EACA1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		102226E02B51AE9F002EACA1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		102226E32B51B85B002EACA1 /* SignUpPageRegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageRegisterUserRequest.swift; sourceTree = "<group>"; };
+		102226E52B51D09A002EACA1 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		102226E72B51EF63002EACA1 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,7 @@
 				0BC453942B5000CA00B0A8FF /* Resources */,
 				0BC4538E2B5000B300B0A8FF /* Info.plist */,
 				0BC453AD2B5005F500B0A8FF /* GoogleService-Info.plist */,
+				102226DC2B51AD35002EACA1 /* LaunchScreen.storyboard */,
 			);
 			path = UIKit_SwiftUI_Collab;
 			sourceTree = "<group>";
@@ -113,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				0BC453952B50011F00B0A8FF /* LoginPage */,
+				102226DB2B51ACC3002EACA1 /* SignUpPage */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -129,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				0BC4539D2B50020400B0A8FF /* AuthenticationManager.swift */,
+				102226E52B51D09A002EACA1 /* Validator.swift */,
+				102226E72B51EF63002EACA1 /* AlertManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -156,6 +172,24 @@
 				102226D92B503741002EACA1 /* CustomUIButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		102226DB2B51ACC3002EACA1 /* SignUpPage */ = {
+			isa = PBXGroup;
+			children = (
+				102226E22B51B844002EACA1 /* Models */,
+				102226DE2B51AE8C002EACA1 /* SignUpViewController.swift */,
+				102226E02B51AE9F002EACA1 /* SignUpViewModel.swift */,
+			);
+			path = SignUpPage;
+			sourceTree = "<group>";
+		};
+		102226E22B51B844002EACA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				102226E32B51B85B002EACA1 /* SignUpPageRegisterUserRequest.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				102226DD2B51AD35002EACA1 /* LaunchScreen.storyboard in Resources */,
 				0BC4538A2B5000B300B0A8FF /* Assets.xcassets in Resources */,
 				0BC453AE2B5005F500B0A8FF /* GoogleService-Info.plist in Resources */,
 			);
@@ -245,8 +280,13 @@
 			files = (
 				0BC453852B5000B100B0A8FF /* LoginViewController.swift in Sources */,
 				102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */,
+				102226DF2B51AE8C002EACA1 /* SignUpViewController.swift in Sources */,
 				0BC453992B50018700B0A8FF /* ColorFromHex.swift in Sources */,
+				102226E42B51B85B002EACA1 /* SignUpPageRegisterUserRequest.swift in Sources */,
+				102226E62B51D09A002EACA1 /* Validator.swift in Sources */,
+				102226E12B51AE9F002EACA1 /* SignUpViewModel.swift in Sources */,
 				0BC453812B5000B100B0A8FF /* AppDelegate.swift in Sources */,
+				102226E82B51EF63002EACA1 /* AlertManager.swift in Sources */,
 				0BC4539E2B50020400B0A8FF /* AuthenticationManager.swift in Sources */,
 				102226D82B5036F8002EACA1 /* CustomUITextField.swift in Sources */,
 				0BC453832B5000B100B0A8FF /* SceneDelegate.swift in Sources */,
@@ -386,6 +426,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit_SwiftUI_Collab/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -412,6 +453,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit_SwiftUI_Collab/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
