@@ -8,25 +8,19 @@
 import Foundation
 
 struct Person {
-    let name: String
-    var ibans: [IBAN]
+    var name: String
+    var banks: [Bank]
 }
 
-struct IBAN {
-    let bank: BankName
-    let values: [String]
+struct Bank {
+    let bankName: BankName
+    var values: [String]
 }
 
 enum BankName: String {
     case TBC
     case BOG
     case BB
-    case other
+    case OTHER
 }
 
-let personarray: [Person] = [
-    
-    Person(name: "keto", ibans: [IBAN(bank: .TBC, values: ["GE23TBragac", "GE23TBragac2"]),
-                                 IBAN(bank: .BOG, values: ["GE10BGragac"])])
-    
-]

@@ -8,24 +8,25 @@
 import Foundation
 import UIKit
 
+protocol AddIBanViewModelDelegate: AnyObject {
+    func showAlert(message: String)
+}
+
 final class AddIBanViewModel {
     
-    var ibanArray = [String]()
-    var personArray = [Person]()
+    //MARK: - Properties
     
-    func addIban(_ newIban: String) {
+    weak var delegate: AddIBanViewModelDelegate?
+    
+    var banksArray = [Bank]()
+    
+    //MARK: - Functions
+    
+    func addIban(_ newIban: String, bank: BankName) {
         if isIbanVerified(newIban) {
-            ibanArray.append(newIban)
+            banksArray.append(Bank(bankName: bank, values: [newIban]))
         } else {
-            print("wrong iban")
-        }
-    }
-    
-    func addPersonToArray(name: String, chosenBank: BankName) {
-        if ibanArray.isEmpty == false {
-            personArray.append(Person(name: name, ibans: [IBAN(bank: chosenBank, values: ibanArray)]))
-        } else {
-            print("no ibans")
+            delegate?.showAlert(message: "Wrong IBAN format")
         }
     }
 
