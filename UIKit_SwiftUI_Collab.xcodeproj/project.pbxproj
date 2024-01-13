@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BA1B3CB2B51D78200ADEB98 /* AddIbanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1B3CA2B51D78200ADEB98 /* AddIbanModel.swift */; };
 		0BC453812B5000B100B0A8FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453802B5000B100B0A8FF /* AppDelegate.swift */; };
 		0BC453832B5000B100B0A8FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453822B5000B100B0A8FF /* SceneDelegate.swift */; };
 		0BC453852B5000B100B0A8FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453842B5000B100B0A8FF /* LoginViewController.swift */; };
@@ -26,13 +27,13 @@
 		0BC453C22B514CB900B0A8FF /* AddIBanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453C12B514CB900B0A8FF /* AddIBanViewController.swift */; };
 		0BC453C52B516CAC00B0A8FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BC453C42B516CAC00B0A8FF /* LaunchScreen.storyboard */; };
 		0BC453C72B516FBF00B0A8FF /* AddIBanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453C62B516FBF00B0A8FF /* AddIBanViewModel.swift */; };
-		0BC453CA2B5174DD00B0A8FF /* IBanTextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453C92B5174DD00B0A8FF /* IBanTextFieldComponent.swift */; };
 		0BC453CC2B517DD500B0A8FF /* ScannerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453CB2B517DD500B0A8FF /* ScannerComponent.swift */; };
 		102226D82B5036F8002EACA1 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D72B5036F8002EACA1 /* CustomUITextField.swift */; };
 		102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D92B503741002EACA1 /* CustomUIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BA1B3CA2B51D78200ADEB98 /* AddIbanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIbanModel.swift; sourceTree = "<group>"; };
 		0BC4537D2B5000B100B0A8FF /* UIKit_SwiftUI_Collab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit_SwiftUI_Collab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BC453802B5000B100B0A8FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BC453822B5000B100B0A8FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		0BC453C12B514CB900B0A8FF /* AddIBanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIBanViewController.swift; sourceTree = "<group>"; };
 		0BC453C42B516CAC00B0A8FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BC453C62B516FBF00B0A8FF /* AddIBanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIBanViewModel.swift; sourceTree = "<group>"; };
-		0BC453C92B5174DD00B0A8FF /* IBanTextFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBanTextFieldComponent.swift; sourceTree = "<group>"; };
 		0BC453CB2B517DD500B0A8FF /* ScannerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerComponent.swift; sourceTree = "<group>"; };
 		102226D72B5036F8002EACA1 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		102226D92B503741002EACA1 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
@@ -165,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				0BC453C12B514CB900B0A8FF /* AddIBanViewController.swift */,
+				0BA1B3CA2B51D78200ADEB98 /* AddIbanModel.swift */,
 				0BC453C62B516FBF00B0A8FF /* AddIBanViewModel.swift */,
 				0BC453C82B5174BA00B0A8FF /* Components */,
 			);
@@ -174,7 +175,6 @@
 		0BC453C82B5174BA00B0A8FF /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				0BC453C92B5174DD00B0A8FF /* IBanTextFieldComponent.swift */,
 				0BC453CB2B517DD500B0A8FF /* ScannerComponent.swift */,
 			);
 			path = Components;
@@ -276,10 +276,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC453CC2B517DD500B0A8FF /* ScannerComponent.swift in Sources */,
+				0BA1B3CB2B51D78200ADEB98 /* AddIbanModel.swift in Sources */,
 				0BC453C72B516FBF00B0A8FF /* AddIBanViewModel.swift in Sources */,
 				0BC453C22B514CB900B0A8FF /* AddIBanViewController.swift in Sources */,
 				0BC453852B5000B100B0A8FF /* LoginViewController.swift in Sources */,
-				0BC453CA2B5174DD00B0A8FF /* IBanTextFieldComponent.swift in Sources */,
 				102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */,
 				0BC453992B50018700B0A8FF /* ColorFromHex.swift in Sources */,
 				0BC453812B5000B100B0A8FF /* AppDelegate.swift in Sources */,

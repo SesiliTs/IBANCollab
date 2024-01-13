@@ -11,12 +11,21 @@ import UIKit
 final class AddIBanViewModel {
     
     var ibanArray = [String]()
+    var personArray = [Person]()
     
     func addIban(_ newIban: String) {
         if isIbanVerified(newIban) {
             ibanArray.append(newIban)
         } else {
             print("wrong iban")
+        }
+    }
+    
+    func addPersonToArray(name: String, chosenBank: BankName) {
+        if ibanArray.isEmpty == false {
+            personArray.append(Person(name: name, ibans: [IBAN(bank: chosenBank, values: ibanArray)]))
+        } else {
+            print("no ibans")
         }
     }
 
