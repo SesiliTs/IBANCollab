@@ -24,13 +24,6 @@ final class Validator {
         return usernamePred.evaluate(with: username)
     }
     
-//    static func isPasswordValid(for password: String) -> Bool {
-//        let password = password.trimmingCharacters(in: .whitespacesAndNewlines)
-//        let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$#!%*?&]).{8,32}$"
-//        let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
-//        return passwordPred.evaluate(with: password)
-//    }
-    
     static func isPasswordValidAboutCapitalLetters(for password: String) -> Bool {
         let password = password.trimmingCharacters(in: .whitespacesAndNewlines)
         let passwordRegEx = ".*[A-Z].*"

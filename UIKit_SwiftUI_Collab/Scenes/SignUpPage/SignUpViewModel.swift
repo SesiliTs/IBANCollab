@@ -10,6 +10,7 @@ import UIKit
 
 protocol SignUpViewModelDelegate: AnyObject {
     func makeButtonTouchable()
+    func makeButtonUnTouchable()
     func changeContainsCapitalLettersLabelColor(with colour: UIColor)
     func changeContainsSpecialCharactersLabelColor(with colour : UIColor)
     func changeContainsNumbersLabelColor(with colour: UIColor)
@@ -17,6 +18,7 @@ protocol SignUpViewModelDelegate: AnyObject {
     
     func displayAlert(title: String, message: String)
     func performSuccessAnimation()
+    func navigateToLogInPage()
 
 }
 
@@ -24,15 +26,12 @@ final class SignUpViewModel {
     
     // MARK: - Properties
     weak var delegate: SignUpViewModelDelegate?
-
-    // MARK: - Initialization
     
     // MARK: - Methods
-    
     func signUpButtonPressed(username: String, email: String, password: String) {
         
         if !(Validator.isValidEmail(for: email) && Validator.isValidUsername(for: username)) {
-            delegate?.displayAlert(title: "Invalid Email Or Username❌", message: "Please Input Valid Username And Email")
+            delegate?.displayAlert(title: "❌Invalid Email Or Username", message: "Please Input Valid Username And Email")
             return
         }
         
@@ -41,17 +40,20 @@ final class SignUpViewModel {
         AuthenticationManager.shared.registerUser(with: userRequest) {[weak self] wasRegistered, error in
             if let error {
                 print(error.localizedDescription)
-                self?.delegate?.displayAlert(title: "Invalid Email Or Username❌", message: "Please Input Valid Username And Email")
+                self?.delegate?.displayAlert(title: "⚠️User Already Exists", message: "User with this Email already exists")
                 return
             }
             
             if wasRegistered {
+                // MARK: - ⚠️⚠️⚠️⚠️NAVIGATE TO LOGIN PAGE⚠️⚠️⚠️⚠️⚠️!!!!!
                 self?.delegate?.performSuccessAnimation()
+                self?.delegate?.navigateToLogInPage()
             }
         }
     }
     
     func checkPasswordStrength(for password: String) {
+        delegate?.makeButtonUnTouchable()
         let containsCapitalLetters = Validator.isPasswordValidAboutCapitalLetters(for: password)
         let containsSpecialCharacters = Validator.isPasswordValidAboutSpecialCharacters(for: password)
         let containsNumbers = Validator.isPasswordValidAboutNumbers(for: password)
@@ -67,7 +69,6 @@ final class SignUpViewModel {
         let isPasswordStrong = containsCapitalLetters && containsSpecialCharacters && containsNumbers && isValidLength
         if isPasswordStrong {
             delegate?.makeButtonTouchable()
-            
         }
     }
 }

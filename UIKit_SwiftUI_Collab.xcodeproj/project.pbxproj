@@ -25,7 +25,6 @@
 		0BC453BC2B5006A200B0A8FF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC453BB2B5006A200B0A8FF /* FirebaseStorage */; };
 		102226D82B5036F8002EACA1 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D72B5036F8002EACA1 /* CustomUITextField.swift */; };
 		102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D92B503741002EACA1 /* CustomUIButton.swift */; };
-		102226DD2B51AD35002EACA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 102226DC2B51AD35002EACA1 /* LaunchScreen.storyboard */; };
 		102226DF2B51AE8C002EACA1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226DE2B51AE8C002EACA1 /* SignUpViewController.swift */; };
 		102226E12B51AE9F002EACA1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226E02B51AE9F002EACA1 /* SignUpViewModel.swift */; };
 		102226E42B51B85B002EACA1 /* SignUpPageRegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226E32B51B85B002EACA1 /* SignUpPageRegisterUserRequest.swift */; };
@@ -45,7 +44,6 @@
 		0BC453AD2B5005F500B0A8FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		102226D72B5036F8002EACA1 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		102226D92B503741002EACA1 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
-		102226DC2B51AD35002EACA1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		102226DE2B51AE8C002EACA1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		102226E02B51AE9F002EACA1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		102226E32B51B85B002EACA1 /* SignUpPageRegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageRegisterUserRequest.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				0BC453942B5000CA00B0A8FF /* Resources */,
 				0BC4538E2B5000B300B0A8FF /* Info.plist */,
 				0BC453AD2B5005F500B0A8FF /* GoogleService-Info.plist */,
-				102226DC2B51AD35002EACA1 /* LaunchScreen.storyboard */,
 			);
 			path = UIKit_SwiftUI_Collab;
 			sourceTree = "<group>";
@@ -265,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				102226DD2B51AD35002EACA1 /* LaunchScreen.storyboard in Resources */,
 				0BC4538A2B5000B300B0A8FF /* Assets.xcassets in Resources */,
 				0BC453AE2B5005F500B0A8FF /* GoogleService-Info.plist in Resources */,
 			);

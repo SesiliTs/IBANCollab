@@ -8,18 +8,17 @@
 import UIKit
 
 final class SignUpViewController: UIViewController {
+    
     // MARK: - Class Properties
     private let viewModel = SignUpViewModel()
 
     // MARK: - UI Components
-    
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 10
         return stackView
-        
     }()
     
     private let signUpLabel: UILabel = {
@@ -28,12 +27,12 @@ final class SignUpViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 40)
         label.textColor = .black
         return label
-        
     }()
     
     private let usernameTextField: UITextField = CustomUITextField(placeholder: "Username")
     private let emailTextField: UITextField = CustomUITextField(placeholder: "Email")
     private let passwordTextField: UITextField = CustomUITextField(placeholder: "Password")
+    
     private let signUpButton: UIButton = {
         let button = CustomUIButton(title: "SignUp", hasBackground: true, fontSize: .big)
         button.isEnabled = false
@@ -47,7 +46,6 @@ final class SignUpViewController: UIViewController {
         label.font = .italicSystemFont(ofSize: 13)
         label.textColor = .black
         return label
-        
     }()
     
     private let containsSpecialCharactersLabel: UILabel = {
@@ -56,7 +54,6 @@ final class SignUpViewController: UIViewController {
         label.font = .italicSystemFont(ofSize: 13)
         label.textColor = .black
         return label
-        
     }()
     
     private let containsNumbersLabel: UILabel = {
@@ -65,7 +62,6 @@ final class SignUpViewController: UIViewController {
         label.font = .italicSystemFont(ofSize: 13)
         label.textColor = .black
         return label
-        
     }()
     
     private let isValidLengthLabel: UILabel = {
@@ -74,7 +70,6 @@ final class SignUpViewController: UIViewController {
         label.font = .italicSystemFont(ofSize: 13)
         label.textColor = .black
         return label
-        
     }()
     
     private let restrictionsStackView: UIStackView = {
@@ -88,7 +83,6 @@ final class SignUpViewController: UIViewController {
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         setupConstraints()
         setupDelegates()
@@ -103,11 +97,11 @@ final class SignUpViewController: UIViewController {
     
     private func setupSubViews() {
         view.addSubview(mainStackView)
+        
         mainStackView.addArrangedSubview(signUpLabel)
         mainStackView.addArrangedSubview(usernameTextField)
         mainStackView.addArrangedSubview(emailTextField)
         mainStackView.addArrangedSubview(passwordTextField)
-//        mainStackView.addArrangedSubview(repeatPasswordTextField)
         mainStackView.addArrangedSubview(signUpButton)
         mainStackView.addArrangedSubview(restrictionsStackView)
         
@@ -152,16 +146,12 @@ final class SignUpViewController: UIViewController {
         mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
-    
-    // MARK: - Class Methods
-    
 }
 
 // MARK: - UITextFieldDelegate
 extension SignUpViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == passwordTextField {
-            // This method is called whenever a character is written in the password text field
             let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
             viewModel.checkPasswordStrength(for: newText)
         }
@@ -171,6 +161,13 @@ extension SignUpViewController: UITextFieldDelegate {
 
 // MARK: - SignUpViewModelDelegate
 extension SignUpViewController: SignUpViewModelDelegate {
+    func makeButtonUnTouchable() {
+        signUpButton.isEnabled = false
+    }
+    
+    func navigateToLogInPage() {
+    }
+    
     func displayAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -202,16 +199,16 @@ extension SignUpViewController: SignUpViewModelDelegate {
         checkmarkImageView.tintColor = .green
         checkmarkImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(checkmarkImageView)
-
+        
         NSLayoutConstraint.activate([
             checkmarkImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             checkmarkImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             checkmarkImageView.widthAnchor.constraint(equalToConstant: 100),
             checkmarkImageView.heightAnchor.constraint(equalToConstant: 100)
         ])
-
+        
         checkmarkImageView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-
+        
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
             checkmarkImageView.transform = .identity
         }) { _ in
@@ -222,7 +219,6 @@ extension SignUpViewController: SignUpViewModelDelegate {
             }
         }
     }
-    
 }
 
 

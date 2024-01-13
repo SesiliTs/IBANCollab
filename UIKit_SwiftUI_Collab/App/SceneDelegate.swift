@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let vcScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: vcScene)
-        let viewController = SignUpViewController()
+        // Insert first view
+        let viewController = LoginViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
         window?.rootViewController = navigationController
