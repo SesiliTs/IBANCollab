@@ -5,7 +5,6 @@
 //  Created by Andria Inasaridze on 12.01.24.
 //
 
-import Foundation
 import UIKit
 
 protocol SignUpViewModelDelegate: AnyObject {
