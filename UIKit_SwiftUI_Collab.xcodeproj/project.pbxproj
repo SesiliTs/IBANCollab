@@ -24,6 +24,13 @@
 		0BC453B82B5006A200B0A8FF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC453B72B5006A200B0A8FF /* FirebaseFirestore */; };
 		0BC453BA2B5006A200B0A8FF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC453B92B5006A200B0A8FF /* FirebaseFirestoreSwift */; };
 		0BC453BC2B5006A200B0A8FF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC453BB2B5006A200B0A8FF /* FirebaseStorage */; };
+		0CDE376F2B5169D60034A18E /* IBANListPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE376E2B5169D60034A18E /* IBANListPageView.swift */; };
+		0CDE37712B5182740034A18E /* IBANListPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE37702B5182740034A18E /* IBANListPageModel.swift */; };
+		0CDE37732B5182860034A18E /* IBANListPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE37722B5182860034A18E /* IBANListPageViewModel.swift */; };
+		0CDE37752B5184000034A18E /* IBANListPageDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE37742B5184000034A18E /* IBANListPageDetailsView.swift */; };
+		0CDE37772B5185290034A18E /* IBANListPageAddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE37762B5185290034A18E /* IBANListPageAddPersonView.swift */; };
+		0CDE377C2B52B2F50034A18E /* IBANListPageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE377B2B52B2F50034A18E /* IBANListPageDetailsViewController.swift */; };
+		0CDE377E2B52B5730034A18E /* IBANListPageDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE377D2B52B5730034A18E /* IBANListPageDetailsTableViewCell.swift */; };
 		0BC453C22B514CB900B0A8FF /* AddIBanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453C12B514CB900B0A8FF /* AddIBanViewController.swift */; };
 		0BC453C72B516FBF00B0A8FF /* AddIBanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453C62B516FBF00B0A8FF /* AddIBanViewModel.swift */; };
 		0BC453CC2B517DD500B0A8FF /* ScannerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453CB2B517DD500B0A8FF /* ScannerComponent.swift */; };
@@ -46,6 +53,13 @@
 		0BC453982B50018700B0A8FF /* ColorFromHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromHex.swift; sourceTree = "<group>"; };
 		0BC4539D2B50020400B0A8FF /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		0BC453AD2B5005F500B0A8FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0CDE376E2B5169D60034A18E /* IBANListPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListPageView.swift; sourceTree = "<group>"; };
+		0CDE37702B5182740034A18E /* IBANListPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListPageModel.swift; sourceTree = "<group>"; };
+		0CDE37722B5182860034A18E /* IBANListPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListPageViewModel.swift; sourceTree = "<group>"; };
+		0CDE37742B5184000034A18E /* IBANListPageDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListPageDetailsView.swift; sourceTree = "<group>"; };
+		0CDE37762B5185290034A18E /* IBANListPageAddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListPageAddPersonView.swift; sourceTree = "<group>"; };
+		0CDE377B2B52B2F50034A18E /* IBANListPageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListPageDetailsViewController.swift; sourceTree = "<group>"; };
+		0CDE377D2B52B5730034A18E /* IBANListPageDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListPageDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		0BC453C12B514CB900B0A8FF /* AddIBanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIBanViewController.swift; sourceTree = "<group>"; };
 		0BC453C62B516FBF00B0A8FF /* AddIBanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIBanViewModel.swift; sourceTree = "<group>"; };
 		0BC453CB2B517DD500B0A8FF /* ScannerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerComponent.swift; sourceTree = "<group>"; };
@@ -128,6 +142,7 @@
 		0BC453962B50012600B0A8FF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0CDE376D2B5169A40034A18E /* IBANListPage */,
 				0BC453952B50011F00B0A8FF /* LoginPage */,
 				102226DB2B51ACC3002EACA1 /* SignUpPage */,
 				0BC453C02B514C9400B0A8FF /* AddIBanPage */,
@@ -168,6 +183,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0CDE376D2B5169A40034A18E /* IBANListPage */ = {
+			isa = PBXGroup;
+			children = (
+				0CDE376E2B5169D60034A18E /* IBANListPageView.swift */,
+				0CDE37702B5182740034A18E /* IBANListPageModel.swift */,
+				0CDE37722B5182860034A18E /* IBANListPageViewModel.swift */,
+				0CDE37762B5185290034A18E /* IBANListPageAddPersonView.swift */,
+				0CDE37742B5184000034A18E /* IBANListPageDetailsView.swift */,
+				0CDE377B2B52B2F50034A18E /* IBANListPageDetailsViewController.swift */,
+				0CDE377D2B52B5730034A18E /* IBANListPageDetailsTableViewCell.swift */,
+			);
+			path = IBANListPage;
+            sourceTree = "<group>";
+        };
 		0BC453C02B514C9400B0A8FF /* AddIBanPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +333,11 @@
 				0BC453C72B516FBF00B0A8FF /* AddIBanViewModel.swift in Sources */,
 				0BC453C22B514CB900B0A8FF /* AddIBanViewController.swift in Sources */,
 				0BC453852B5000B100B0A8FF /* LoginViewController.swift in Sources */,
+				0CDE37752B5184000034A18E /* IBANListPageDetailsView.swift in Sources */,
+				0CDE37732B5182860034A18E /* IBANListPageViewModel.swift in Sources */,
+				0CDE37712B5182740034A18E /* IBANListPageModel.swift in Sources */,
+				0CDE377C2B52B2F50034A18E /* IBANListPageDetailsViewController.swift in Sources */,
+				0CDE377E2B52B5730034A18E /* IBANListPageDetailsTableViewCell.swift in Sources */,
 				102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */,
 				102226DF2B51AE8C002EACA1 /* SignUpViewController.swift in Sources */,
 				0BC453992B50018700B0A8FF /* ColorFromHex.swift in Sources */,
@@ -312,8 +346,10 @@
 				102226E12B51AE9F002EACA1 /* SignUpViewModel.swift in Sources */,
 				0BC453812B5000B100B0A8FF /* AppDelegate.swift in Sources */,
 				0BC4539E2B50020400B0A8FF /* AuthenticationManager.swift in Sources */,
+				0CDE37772B5185290034A18E /* IBANListPageAddPersonView.swift in Sources */,
 				102226D82B5036F8002EACA1 /* CustomUITextField.swift in Sources */,
 				0BC453832B5000B100B0A8FF /* SceneDelegate.swift in Sources */,
+				0CDE376F2B5169D60034A18E /* IBANListPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +482,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 29X5XJV3CC;
+				DEVELOPMENT_TEAM = 5N5VS4BKTB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit_SwiftUI_Collab/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "app would like to use a camera";
@@ -474,7 +510,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 29X5XJV3CC;
+				DEVELOPMENT_TEAM = 5N5VS4BKTB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit_SwiftUI_Collab/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "app would like to use a camera";
