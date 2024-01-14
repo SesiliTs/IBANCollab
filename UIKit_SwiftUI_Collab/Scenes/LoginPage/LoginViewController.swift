@@ -94,15 +94,18 @@ class LoginViewController: UIViewController {
     }
 
     private func setupNavigations() {
+        let ibanListViewModel = IBANListViewModel()
         
-        let ibanListView = IBANListView(navigateToDetailsPage: {person,vm in
+        let ibanListView = IBANListView(viewModel: ibanListViewModel, navigateToDetailsPage: { person,vm in
             let detailsView = IBanDetailsView(person: person, viewModel: vm) {
                 self.navigationController?.popViewController(animated: true)
             }
             let detailsViewHostingViewController = UIHostingController(rootView: detailsView)
             self.navigationController?.pushViewController(detailsViewHostingViewController, animated: true)
         }, naviagteToAddIbanViewController: {
-            let addIbanViewController = AddIBanViewController()
+            let addIbanViewController = AddIBanViewController() { person in
+                ibanListViewModel.people.append(person)
+            }
             self.navigationController?.pushViewController(addIbanViewController, animated: true)
         })
         let ibanListViewHostingController = UIHostingController(rootView: ibanListView)

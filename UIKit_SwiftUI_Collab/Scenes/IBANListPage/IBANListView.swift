@@ -12,7 +12,7 @@ import SwiftUI
 struct IBANListView: View {
     
     // MARK: - Properties
-    @StateObject private var viewModel = IBANListViewModel()
+    @StateObject var viewModel: IBANListViewModel
     @State private var isAddingNewPerson = false
     @State private var isAddingIban = false
     var navigateToDetailsPage: (PersonModel, IBANListViewModel) -> Void
@@ -44,7 +44,7 @@ struct IBANListView: View {
 struct IBANListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            IBANListView(navigateToDetailsPage: {_,_ in }, naviagteToAddIbanViewController: {})
+            IBANListView(viewModel: IBANListViewModel(), navigateToDetailsPage: {_,_ in }, naviagteToAddIbanViewController: {})
         }
     }
 }

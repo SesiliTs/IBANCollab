@@ -103,6 +103,7 @@ struct IBanDetailsView: View {
             updatedPerson.ibans.remove(at: index)
             viewModel.deletePerson(person)
             viewModel.addPerson(updatedPerson)
+            navigateBack()
         }
     }
     
