@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person {
+struct PersonModel {
     var name: String
     var banks: [Bank]
 }

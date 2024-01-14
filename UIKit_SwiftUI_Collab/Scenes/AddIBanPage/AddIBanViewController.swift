@@ -222,7 +222,7 @@ final class AddIBanViewController: UIViewController {
                 showAlert(message: "Please enter a name.")
                 return
             }
-            let person = Person(name: name, banks: viewModel.banksArray)
+            let person = PersonModel(name: name, banks: viewModel.banksArray)
             nameTextField.text = ""
             ibansArrayLabel.text = ""
             viewModel.banksArray.removeAll()
