@@ -8,13 +8,14 @@
 import Foundation
 
 struct PersonModel {
+    let id = UUID()
     var name: String
-    var banks: [Bank]
+    var ibans: [iban]
 }
 
-struct Bank {
+struct iban {
     let bankName: BankName
-    var values: [String]
+    var iban: String
 }
 
 enum BankName: String {

@@ -200,13 +200,10 @@ final class AddIBanViewController: UIViewController {
         addIbanButton.addAction(UIAction(handler: { [self] _ in
             
             guard let newIban = ibanTextField.text, !newIban.isEmpty else { return }
-            if let existingBankIndex = viewModel.banksArray.firstIndex(where: { $0.bankName == currentBank }) {
-                viewModel.banksArray[existingBankIndex].values.append(newIban)
-            } else {
+            
                 viewModel.addIban(newIban, bank: currentBank ?? .OTHER)
-            }
 
-            ibansArrayLabel.text = viewModel.banksArray.flatMap { $0.values }.joined(separator: "\n")
+            ibansArrayLabel.text = viewModel.banksArray.map { $0.iban }.joined(separator: "\n")
             ibanTextField.text = ""
             ibansArrayLabel.numberOfLines = 0
             stackView.layoutIfNeeded()
@@ -222,7 +219,7 @@ final class AddIBanViewController: UIViewController {
                 showAlert(message: "Please enter a name.")
                 return
             }
-            let person = PersonModel(name: name, banks: viewModel.banksArray)
+            let person = PersonModel(name: name, ibans: viewModel.banksArray)
             nameTextField.text = ""
             ibansArrayLabel.text = ""
             viewModel.banksArray.removeAll()
