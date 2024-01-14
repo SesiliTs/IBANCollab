@@ -16,6 +16,10 @@ struct IBanDetailsView: View {
     var navigateBack: () -> Void
     @State private var ibanToAdd = ""
     
+    @State var isShowingScanner = false
+    @State private var scannedText = ""
+
+    
     // MARK: - Body
     var body: some View {
         List {
@@ -61,8 +65,20 @@ struct IBanDetailsView: View {
                     }
                 }
             }
+            
+            Button {
+                isShowingScanner.toggle()
+            } label: {
+                Image(systemName: "barcode.viewfinder")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+            }
+            .sheet(isPresented: $isShowingScanner) {
+                ScannerSheetView(isShowingScanner: $isShowingScanner, scannedText: $scannedText, ibanToAdd: $ibanToAdd)
+            }
         }
         .navigationBarTitle("\(person.firstName) \(person.lastName)")
+        
     }
     
     // MARK: - Private Methods
@@ -99,6 +115,33 @@ struct IBanDetailsView: View {
         ibanToAdd = ""
     }
 }
+
+//MARK: - Scanner Sheet View
+
+struct ScannerSheetView: View {
+    @Binding var isShowingScanner: Bool
+    @Binding var scannedText: String
+    @Binding var ibanToAdd: String
+    
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            ScannerForSwiftUI(
+                shouldStartScanning: $isShowingScanner,
+                scannedText: $scannedText,
+                dataToScanFor: [.text()]
+            )
+            Text(scannedText)
+                .padding()
+                .background(Color.white)
+                .foregroundColor(.black)
+                .onTapGesture {
+                    ibanToAdd = scannedText
+                    isShowingScanner.toggle()
+                }
+        }
+    }
+}
+
 
 
 #Preview {
