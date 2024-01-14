@@ -7,10 +7,10 @@
 
 import UIKit
 
-class IBanDetailsTableViewCell: UITableViewCell {
+final class IBanDetailsTableViewCell: UITableViewCell {
     
     // MARK: - UI Elements
-    let ibanLabel = UILabel()
+    private let ibanLabel = UILabel()
     let copyButton = UIButton(type: .system)
     let shareButton = UIButton(type: .system)
     let deleteButton = UIButton(type: .system)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IBanDetailsViewController: UIViewController {
+final class IBanDetailsViewController: UIViewController {
     
     // MARK: - Properties
     var person: Person!
@@ -26,22 +26,29 @@ class IBanDetailsViewController: UIViewController {
     private func setupUI() {
         self.title = "\(person.firstName) \(person.lastName)"
         
-        ibanTableView = UITableView()
-        ibanTableView.delegate = self
-        ibanTableView.dataSource = self
-        ibanTableView.register(IBanDetailsTableViewCell.self, forCellReuseIdentifier: "IBanDetailsCell")
+        registerTableView()
         
         ibanToAddTextField = UITextField()
         ibanToAddTextField.placeholder = "Enter IBAN"
         
         let addButton = UIButton(type: .system)
         addButton.setTitle("Add", for: .normal)
-        addButton.addTarget(self, action: #selector(addNewIBAN), for: .touchUpInside)
+        addButton.addAction(UIAction(handler: { _ in
+                self.addNewIBAN()
+            }), for: .touchUpInside)
         
         view.addSubview(ibanTableView)
         view.addSubview(ibanToAddTextField)
         view.addSubview(addButton)
     }
+    
+    private func registerTableView() {
+        ibanTableView = UITableView()
+        ibanTableView.delegate = self
+        ibanTableView.dataSource = self
+        ibanTableView.register(IBanDetailsTableViewCell.self, forCellReuseIdentifier: "IBanDetailsCell")
+    }
+    
     
     // MARK: - IBAN Actions
     @objc private func addNewIBAN() {
@@ -70,7 +77,7 @@ class IBanDetailsViewController: UIViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension IBanDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return person.ibans.count
+         person.ibans.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

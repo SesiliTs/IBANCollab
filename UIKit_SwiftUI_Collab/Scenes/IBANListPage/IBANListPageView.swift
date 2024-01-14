@@ -12,7 +12,7 @@ import SwiftUI
 struct IBANListView: View {
     
     // MARK: - Properties
-    @ObservedObject private var viewModel = IBANListViewModel()
+    @StateObject private var viewModel = IBANListViewModel()
     @State private var isAddingNewPerson = false
     
     // MARK: - Body

@@ -18,7 +18,7 @@ struct AddPersonView: View {
     
     // MARK: - Body
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section(header: Text("New Person")) {
                     TextField("First Name", text: $firstName)
