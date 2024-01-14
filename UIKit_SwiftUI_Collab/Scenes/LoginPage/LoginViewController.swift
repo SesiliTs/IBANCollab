@@ -7,11 +7,13 @@
 
 import UIKit
 import Firebase
+import SwiftUI
  
 class LoginViewController: UIViewController {
     
  
     // MARK: - IBOutlets
+
     private let emailTextField = CustomUITextField(placeholder: "Email")
     private let passwordTextField = CustomUITextField(placeholder: "Password")
     private let loginButton = CustomUIButton(title: "Login", hasBackground: true, fontSize: .medium)
@@ -32,8 +34,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+
     }
- 
+    
     // MARK: - UI Setup
     private func setupUI() {
         
@@ -62,28 +65,51 @@ class LoginViewController: UIViewController {
  
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
+            
             if let error = error {
+                
                 self?.displayAlert(title: "Log In Error", message: "\(error.localizedDescription)")
                 
             } else {
-                print("success")
-                //                self?.navigateToNextScreen()
+                
+//                let ibanListView = IBANListView(navigateToDetailsPage: {person,vm in
+//                    let detailsView = IBanDetailsView(person: person, viewModel: vm) {
+//                        self?.navigationController?.popViewController(animated: true)
+//                    }
+//                    let hostingVC = UIHostingController(rootView: detailsView)
+//                    self?.navigationController?.pushViewController(hostingVC, animated: true)
+//                })
+//                let hostingController = UIHostingController(rootView: ibanListView)
+//                hostingController.navigationItem.hidesBackButton = true
+//                self?.navigationController?.pushViewController(hostingController, animated: true)
+                self?.setupNavigations()
+
             }
         }
     }
     
     @objc private func signUpNowButtonTapped() {
-        print("Navigate to sign Up Page")
+        let signUpViewController = SignUpViewController()
+        navigationController?.pushViewController(signUpViewController, animated: true)
     }
 
- 
-    private func navigateToNextScreen() {
-        let storyboard = UIStoryboard(name: "YourStoryboardName", bundle: nil)
-        if let nextViewController = storyboard.instantiateViewController(withIdentifier: "YourViewControllerIdentifier") as? LoginViewController {
-           
-            navigationController?.pushViewController(nextViewController, animated: true)
-        }
+    private func setupNavigations() {
+        
+        let ibanListView = IBANListView(navigateToDetailsPage: {person,vm in
+            let detailsView = IBanDetailsView(person: person, viewModel: vm) {
+                self.navigationController?.popViewController(animated: true)
+            }
+            let detailsViewHostingViewController = UIHostingController(rootView: detailsView)
+            self.navigationController?.pushViewController(detailsViewHostingViewController, animated: true)
+        }, naviagteToAddIbanViewController: {
+            let addIbanViewController = AddIBanViewController()
+            self.navigationController?.pushViewController(addIbanViewController, animated: true)
+        })
+        let ibanListViewHostingController = UIHostingController(rootView: ibanListView)
+        ibanListViewHostingController.navigationItem.hidesBackButton = true
+        navigationController?.pushViewController(ibanListViewHostingController, animated: true)
     }
+    
     
     private func displayAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

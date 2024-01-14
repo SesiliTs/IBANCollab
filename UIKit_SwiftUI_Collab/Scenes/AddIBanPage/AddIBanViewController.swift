@@ -226,6 +226,8 @@ final class AddIBanViewController: UIViewController {
             nameTextField.text = ""
             ibansArrayLabel.text = ""
             viewModel.banksArray.removeAll()
+            
+            self.navigationController?.popViewController(animated: true)
             // ამ ღილაკზე უნდა იყოს ნავიგაცია და პერსონ ცვლადი უნდა წაიღოს ლისტის გვერდზე
             print(person)
         }), for: .touchUpInside)

@@ -13,7 +13,7 @@ struct IBanDetailsView: View {
     // MARK: - Properties
     let person: Person
     @ObservedObject var viewModel: IBANListViewModel
-    var onDelete: () -> Void
+    var navigateBack: () -> Void
     @State private var ibanToAdd = ""
     
     // MARK: - Body
@@ -35,7 +35,7 @@ struct IBanDetailsView: View {
                 HStack {
                     TextField("Enter IBAN", text: $ibanToAdd)
                     Button(action: {
-                        addNewIBAN()
+                        addButtonTapped()
                     }) {
                         Text("Add")
                     }
@@ -45,19 +45,26 @@ struct IBanDetailsView: View {
         .navigationBarTitle("\(person.firstName) \(person.lastName)")
         .navigationBarItems(trailing:
                                 Button(action: {
-            onDelete()
+//            navigateBack()
         }) {
             Image(systemName: "trash")
         })
     }
     
     // MARK: - Private Methods
-    private func addNewIBAN() {
+    private func addButtonTapped() {
         guard !ibanToAdd.isEmpty else { return }
         var updatedPerson = person
         updatedPerson.ibans.append(ibanToAdd)
         viewModel.deletePerson(person)
         viewModel.addPerson(updatedPerson)
         ibanToAdd = ""
+        navigateBack()
+
     }
+    
+}
+
+#Preview {
+    IBanDetailsView(person: Person(firstName: "", lastName: "", ibans: []), viewModel: IBANListViewModel(), navigateBack: {})
 }

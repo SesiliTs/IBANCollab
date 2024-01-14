@@ -14,36 +14,38 @@ struct IBANListView: View {
     // MARK: - Properties
     @StateObject private var viewModel = IBANListViewModel()
     @State private var isAddingNewPerson = false
+    @State private var isAddingIban = false
+    @State var selectedItem: Person?
+    var navigateToDetailsPage: (Person, IBANListViewModel) -> Void
+    var naviagteToAddIbanViewController: () -> Void
+
     
     // MARK: - Body
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(viewModel.sortedPeople) { person in
-                    NavigationLink(destination: IBanDetailsView(person: person, viewModel: viewModel) {
-                        viewModel.deletePerson(person)
-                    }) {
-                        Text("\(person.firstName) \(person.lastName)")
+        List {
+            ForEach(viewModel.sortedPeople) { person in
+                Text("\(person.firstName) \(person.lastName)")
+                    .onTapGesture {
+                        navigateToDetailsPage(person, viewModel)
                     }
-                }
-            }
-            .navigationBarTitle("People")
-            .navigationBarItems(trailing:
-                                    Button(action: {
-                isAddingNewPerson.toggle()
-            }) {
-                Image(systemName: "person.crop.circle.badge.plus")
-            }
-            )
-            .sheet(isPresented: $isAddingNewPerson) {
-                AddPersonView(isPresented: $isAddingNewPerson, viewModel: viewModel)
             }
         }
+        .navigationBarTitle("People")
+        .navigationBarItems(trailing:
+                                Button(action: {
+            naviagteToAddIbanViewController()
+        }) {
+            Image(systemName: "person.crop.circle.badge.plus")
+        }
+        )
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 struct IBANListView_Previews: PreviewProvider {
     static var previews: some View {
-        IBANListView()
+        NavigationStack {
+            IBANListView(navigateToDetailsPage: {_,_ in }, naviagteToAddIbanViewController: {})
+        }
     }
 }

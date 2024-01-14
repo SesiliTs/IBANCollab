@@ -46,7 +46,9 @@ final class SignUpViewModel {
             if wasRegistered {
                 // MARK: - ⚠️⚠️⚠️⚠️NAVIGATE TO LOGIN PAGE⚠️⚠️⚠️⚠️⚠️!!!!!
                 self?.delegate?.performSuccessAnimation()
-                self?.delegate?.navigateToLogInPage()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                    self?.delegate?.navigateToLogInPage()
+                }
             }
         }
     }

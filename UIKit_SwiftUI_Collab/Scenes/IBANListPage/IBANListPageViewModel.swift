@@ -10,7 +10,7 @@ import SwiftUI
 final class IBANListViewModel: ObservableObject {
     
     // MARK: - Properties
-    @Published private var people: [Person] = [
+    @Published var people: [Person] = [
         Person(firstName: "John", lastName: "Doe", ibans: ["IBAN1", "IBAN2"]),
         Person(firstName: "Alice", lastName: "Smith", ibans: ["IBAN3", "IBAN4"]),
         Person(firstName: "aanohn", lastName: "Doe", ibans: ["IBAN1", "IBAN2"]),

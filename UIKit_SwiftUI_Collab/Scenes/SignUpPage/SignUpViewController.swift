@@ -166,6 +166,7 @@ extension SignUpViewController: SignUpViewModelDelegate {
     }
     
     func navigateToLogInPage() {
+        navigationController?.popViewController(animated: true)
     }
     
     func displayAlert(title: String, message: String) {
@@ -212,7 +213,7 @@ extension SignUpViewController: SignUpViewModelDelegate {
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
             checkmarkImageView.transform = .identity
         }) { _ in
-            UIView.animate(withDuration: 0.2, delay: 1.0, options: [], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
                 checkmarkImageView.alpha = 0.0
             }) { _ in
                 checkmarkImageView.removeFromSuperview()
