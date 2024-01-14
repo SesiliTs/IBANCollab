@@ -11,7 +11,7 @@ import SwiftUI
 struct IBanDetailsView: View {
     
     // MARK: - Properties
-    let person: Person
+    let person: PersonModel
     @ObservedObject var viewModel: IBANListViewModel
     var navigateBack: () -> Void
     @State private var ibanToAdd = ""
@@ -26,26 +26,26 @@ struct IBanDetailsView: View {
             
             // MARK: - IBANs Section
             Section(header: Text("IBANs")) {
-                ForEach(person.ibans, id: \.self) { iban in
+                ForEach(person.ibans) { iban in
                     Button(action: {}) {
                         HStack {
-                            Text(iban)
+                            Text(iban.iban)
                             Spacer()
                             
                             Button(action: {
-                                copyToClipboard(iban)
+                                copyToClipboard(iban.iban)
                             }) {
                                 Image(systemName: "doc.on.doc")
                             }
                             
                             Button(action: {
-                                shareIBAN(iban)
+                                shareIBAN(iban.iban)
                             }) {
                                 Image(systemName: "square.and.arrow.up")
                             }
                             
                             Button(action: {
-                                deleteIBAN(iban)
+                                deleteIBAN(iban.iban)
                             }) {
                                 Image(systemName: "trash")
                             }
@@ -77,7 +77,7 @@ struct IBanDetailsView: View {
                 ScannerSheetView(isShowingScanner: $isShowingScanner, scannedText: $scannedText, ibanToAdd: $ibanToAdd)
             }
         }
-        .navigationBarTitle("\(person.firstName) \(person.lastName)")
+        .navigationBarTitle("\(person.name)")
         
     }
     
@@ -99,7 +99,7 @@ struct IBanDetailsView: View {
     
     private func deleteIBAN(_ iban: String) {
         var updatedPerson = person
-        if let index = updatedPerson.ibans.firstIndex(of: iban) {
+        if let index = updatedPerson.ibans.firstIndex(where: {$0.iban == iban}) {
             updatedPerson.ibans.remove(at: index)
             viewModel.deletePerson(person)
             viewModel.addPerson(updatedPerson)
@@ -109,10 +109,13 @@ struct IBanDetailsView: View {
     private func addNewIBAN() {
         guard !ibanToAdd.isEmpty else { return }
         var updatedPerson = person
-        updatedPerson.ibans.append(ibanToAdd)
+        let newIban = iban(bankName: .OTHER, iban: ibanToAdd)
+        updatedPerson.ibans.append(newIban)
         viewModel.deletePerson(person)
         viewModel.addPerson(updatedPerson)
         ibanToAdd = ""
+        
+        navigateBack()
     }
 }
 
@@ -145,5 +148,5 @@ struct ScannerSheetView: View {
 
 
 #Preview {
-    IBanDetailsView(person: Person(firstName: "", lastName: "", ibans: []), viewModel: IBANListViewModel(), navigateBack: {})
+    IBanDetailsView(person: PersonModel(name: "Andria", ibans: []), viewModel: IBANListViewModel(), navigateBack: {})
 }
