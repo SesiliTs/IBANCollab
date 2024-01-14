@@ -11,10 +11,11 @@ import SwiftUI
 struct IBanDetailsView: View {
     
     // MARK: - Properties
-    let person: Person
+    let person: PersonModel
     @ObservedObject var viewModel: IBANListViewModel
     var navigateBack: () -> Void
     @State private var ibanToAdd = ""
+    @State private var showAlert = false
     
     @State var isShowingScanner = false
     @State private var scannedText = ""
@@ -22,62 +23,73 @@ struct IBanDetailsView: View {
     
     // MARK: - Body
     var body: some View {
-        List {
+        ZStack {
+            Color(uiColor: UIColor.init(hexString: "#E5E5E5"))
+                .ignoresSafeArea()
             
-            // MARK: - IBANs Section
-            Section(header: Text("IBANs")) {
-                ForEach(person.ibans, id: \.self) { iban in
-                    Button(action: {}) {
-                        HStack {
-                            Text(iban)
-                            Spacer()
-                            
-                            Button(action: {
-                                copyToClipboard(iban)
-                            }) {
-                                Image(systemName: "doc.on.doc")
-                            }
-                            
-                            Button(action: {
-                                shareIBAN(iban)
-                            }) {
-                                Image(systemName: "square.and.arrow.up")
-                            }
-                            
-                            Button(action: {
-                                deleteIBAN(iban)
-                            }) {
-                                Image(systemName: "trash")
+            List {
+                // MARK: - IBANs Section
+                Section(header: Text("IBANs")) {
+                    ForEach(person.ibans) { iban in
+                        Button(action: {}) {
+                            HStack {
+                                Text(iban.iban)
+                                Spacer()
+                                
+                                Button(action: {
+                                    copyToClipboard(iban.iban)
+                                }) {
+                                    Image(systemName: "doc.on.doc")
+                                }
+                                
+                                Button(action: {
+                                    shareIBAN(iban.iban)
+                                }) {
+                                    Image(systemName: "square.and.arrow.up")
+                                }
+                                
+                                Button(action: {
+                                    deleteIBAN(iban.iban)
+                                }) {
+                                    Image(systemName: "trash")
+                                }
                             }
                         }
                     }
                 }
-            }
-            
-            // MARK: - Add New IBAN Section
-            Section(header: Text("Add New IBAN")) {
-                HStack {
-                    TextField("Enter IBAN", text: $ibanToAdd)
-                    Button(action: {
-                        addNewIBAN()
-                    }) {
-                        Text("Add")
+                
+                // MARK: - Add New IBAN Section
+                Section(header: Text("Add New IBAN")) {
+                    HStack {
+                        TextField("Enter IBAN", text: $ibanToAdd)
+                        Button(action: {
+                            addNewIBAN()
+                        }) {
+                            Text("Add")
+                        }
                     }
                 }
+                
+                Button {
+                    isShowingScanner.toggle()
+                } label: {
+                    Image(systemName: "barcode.viewfinder")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                }
+                .sheet(isPresented: $isShowingScanner) {
+                    ScannerSheetView(isShowingScanner: $isShowingScanner, scannedText: $scannedText, ibanToAdd: $ibanToAdd)
+                }
             }
-            
-            Button {
-                isShowingScanner.toggle()
-            } label: {
-                Image(systemName: "barcode.viewfinder")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-            }
-            .sheet(isPresented: $isShowingScanner) {
-                ScannerSheetView(isShowingScanner: $isShowingScanner, scannedText: $scannedText, ibanToAdd: $ibanToAdd)
-            }
+            .navigationBarTitle("\(person.name)")
+            .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Iban Is Invalid"),
+                            message: Text("Input Valid Iban!!!!"),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
         }
-        .navigationBarTitle("\(person.firstName) \(person.lastName)")
         
     }
     
@@ -99,20 +111,28 @@ struct IBanDetailsView: View {
     
     private func deleteIBAN(_ iban: String) {
         var updatedPerson = person
-        if let index = updatedPerson.ibans.firstIndex(of: iban) {
+        if let index = updatedPerson.ibans.firstIndex(where: {$0.iban == iban}) {
             updatedPerson.ibans.remove(at: index)
             viewModel.deletePerson(person)
             viewModel.addPerson(updatedPerson)
+            navigateBack()
         }
     }
     
     private func addNewIBAN() {
         guard !ibanToAdd.isEmpty else { return }
+        if !viewModel.isIbanVerified(ibanToAdd) {
+            showAlert.toggle()
+            return
+        }
         var updatedPerson = person
-        updatedPerson.ibans.append(ibanToAdd)
+        let newIban = Iban(bankName: .OTHER, iban: ibanToAdd)
+        updatedPerson.ibans.append(newIban)
         viewModel.deletePerson(person)
         viewModel.addPerson(updatedPerson)
         ibanToAdd = ""
+        
+        navigateBack()
     }
 }
 
@@ -145,5 +165,5 @@ struct ScannerSheetView: View {
 
 
 #Preview {
-    IBanDetailsView(person: Person(firstName: "", lastName: "", ibans: []), viewModel: IBANListViewModel(), navigateBack: {})
+    IBanDetailsView(person: PersonModel(name: "Andria", ibans: []), viewModel: IBANListViewModel(), navigateBack: {})
 }

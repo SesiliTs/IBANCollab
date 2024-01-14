@@ -29,7 +29,6 @@
 		0BC453C72B516FBF00B0A8FF /* AddIBanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453C62B516FBF00B0A8FF /* AddIBanViewModel.swift */; };
 		0BC453CC2B517DD500B0A8FF /* ScannerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC453CB2B517DD500B0A8FF /* ScannerComponent.swift */; };
 		0CDE376F2B5169D60034A18E /* IBANListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE376E2B5169D60034A18E /* IBANListView.swift */; };
-		0CDE37712B5182740034A18E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE37702B5182740034A18E /* Person.swift */; };
 		0CDE37732B5182860034A18E /* IBANListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE37722B5182860034A18E /* IBANListViewModel.swift */; };
 		0CDE37752B5184000034A18E /* IBanDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE37742B5184000034A18E /* IBanDetailsView.swift */; };
 		102226D82B5036F8002EACA1 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102226D72B5036F8002EACA1 /* CustomUITextField.swift */; };
@@ -56,7 +55,6 @@
 		0BC453C62B516FBF00B0A8FF /* AddIBanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIBanViewModel.swift; sourceTree = "<group>"; };
 		0BC453CB2B517DD500B0A8FF /* ScannerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerComponent.swift; sourceTree = "<group>"; };
 		0CDE376E2B5169D60034A18E /* IBANListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListView.swift; sourceTree = "<group>"; };
-		0CDE37702B5182740034A18E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		0CDE37722B5182860034A18E /* IBANListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANListViewModel.swift; sourceTree = "<group>"; };
 		0CDE37742B5184000034A18E /* IBanDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBanDetailsView.swift; sourceTree = "<group>"; };
 		102226D72B5036F8002EACA1 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				0CDE376E2B5169D60034A18E /* IBANListView.swift */,
-				0CDE37702B5182740034A18E /* Person.swift */,
 				0CDE37722B5182860034A18E /* IBANListViewModel.swift */,
 				0CDE37742B5184000034A18E /* IBanDetailsView.swift */,
 			);
@@ -329,7 +326,6 @@
 				0BC453852B5000B100B0A8FF /* LoginViewController.swift in Sources */,
 				0CDE37752B5184000034A18E /* IBanDetailsView.swift in Sources */,
 				0CDE37732B5182860034A18E /* IBANListViewModel.swift in Sources */,
-				0CDE37712B5182740034A18E /* Person.swift in Sources */,
 				102226DA2B503741002EACA1 /* CustomUIButton.swift in Sources */,
 				102226DF2B51AE8C002EACA1 /* SignUpViewController.swift in Sources */,
 				0BC453992B50018700B0A8FF /* ColorFromHex.swift in Sources */,

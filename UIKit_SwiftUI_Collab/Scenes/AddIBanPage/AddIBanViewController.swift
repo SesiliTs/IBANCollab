@@ -11,11 +11,12 @@ import VisionKit
 final class AddIBanViewController: UIViewController {
     
     //MARK: - Properties
-    
     private let viewModel = AddIBanViewModel()
     private let dataScannerManager = DataScannerManager()
     private var currentBank = BankName(rawValue: "")
     private var selectedButton: UIButton?
+    var addNewPersonToList: (PersonModel) -> Void
+
     
     private let addIBanLabel = {
         let label = UILabel()
@@ -112,6 +113,18 @@ final class AddIBanViewController: UIViewController {
         stackView.spacing = 15
         return stackView
     }()
+    
+    // MARK: - Initi
+    init(currentBank: BankName? = nil, selectedButton: UIButton? = nil, addNewPersonToList: @escaping (PersonModel) -> Void) {
+        self.currentBank = currentBank
+        self.selectedButton = selectedButton
+        self.addNewPersonToList = addNewPersonToList
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - ViewLifeCycles
     
@@ -219,14 +232,21 @@ final class AddIBanViewController: UIViewController {
                 showAlert(message: "Please enter a name.")
                 return
             }
+            
+            if viewModel.banksArray.isEmpty {
+                showAlert(message: "Please add at least one IBAN.")
+                return
+            }
+            
+            
             let person = PersonModel(name: name, ibans: viewModel.banksArray)
             nameTextField.text = ""
             ibansArrayLabel.text = ""
             viewModel.banksArray.removeAll()
             
+            addNewPersonToList(person)
             self.navigationController?.popViewController(animated: true)
-            // ამ ღილაკზე უნდა იყოს ნავიგაცია და პერსონ ცვლადი უნდა წაიღოს ლისტის გვერდზე
-            print(person)
+            
         }), for: .touchUpInside)
     }
     

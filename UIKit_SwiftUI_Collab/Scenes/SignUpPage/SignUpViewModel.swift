@@ -44,7 +44,6 @@ final class SignUpViewModel {
             }
             
             if wasRegistered {
-                // MARK: - ⚠️⚠️⚠️⚠️NAVIGATE TO LOGIN PAGE⚠️⚠️⚠️⚠️⚠️!!!!!
                 self?.delegate?.performSuccessAnimation()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                     self?.delegate?.navigateToLogInPage()
@@ -60,13 +59,11 @@ final class SignUpViewModel {
         let containsNumbers = Validator.isPasswordValidAboutNumbers(for: password)
         let isValidLength = Validator.isPasswordValidAboutLength(for: password)
         
-        // Update UI based on password strength checks
         delegate?.changeContainsCapitalLettersLabelColor( with: containsCapitalLetters ? .green : .red)
         delegate?.changeContainsSpecialCharactersLabelColor(with: containsSpecialCharacters ? .green : .red)
         delegate?.changeContainsNumbersLabelColor(with: containsNumbers ? .green : .red)
         delegate?.changeIsValidLengthLabelColor(with: isValidLength ? .green : .red)
         
-        // Enable or disable the button based on all strength checks
         let isPasswordStrong = containsCapitalLetters && containsSpecialCharacters && containsNumbers && isValidLength
         if isPasswordStrong {
             delegate?.makeButtonTouchable()

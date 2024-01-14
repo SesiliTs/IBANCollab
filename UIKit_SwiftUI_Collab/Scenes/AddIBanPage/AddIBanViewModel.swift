@@ -17,14 +17,13 @@ final class AddIBanViewModel {
     //MARK: - Properties
     
     weak var delegate: AddIBanViewModelDelegate?
-    
-    var banksArray = [iban]()
+    var banksArray = [Iban]()
     
     //MARK: - Functions
     
     func addIban(_ newIban: String, bank: BankName) {
         if isIbanVerified(newIban) {
-            banksArray.append(iban(bankName: bank, iban: newIban))
+            banksArray.append(Iban(bankName: bank, iban: newIban))
         } else {
             delegate?.showAlert(message: "Wrong IBAN format")
         }

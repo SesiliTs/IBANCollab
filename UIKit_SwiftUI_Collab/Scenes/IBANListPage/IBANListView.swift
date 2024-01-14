@@ -12,11 +12,10 @@ import SwiftUI
 struct IBANListView: View {
     
     // MARK: - Properties
-    @StateObject private var viewModel = IBANListViewModel()
+    @StateObject var viewModel: IBANListViewModel
     @State private var isAddingNewPerson = false
     @State private var isAddingIban = false
-    @State var selectedItem: Person?
-    var navigateToDetailsPage: (Person, IBANListViewModel) -> Void
+    var navigateToDetailsPage: (PersonModel, IBANListViewModel) -> Void
     var naviagteToAddIbanViewController: () -> Void
 
     
@@ -24,7 +23,7 @@ struct IBANListView: View {
     var body: some View {
         List {
             ForEach(viewModel.sortedPeople) { person in
-                Text("\(person.firstName) \(person.lastName)")
+                Text("\(person.name)")
                     .onTapGesture {
                         navigateToDetailsPage(person, viewModel)
                     }
@@ -45,7 +44,7 @@ struct IBANListView: View {
 struct IBANListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            IBANListView(navigateToDetailsPage: {_,_ in }, naviagteToAddIbanViewController: {})
+            IBANListView(viewModel: IBANListViewModel(), navigateToDetailsPage: {_,_ in }, naviagteToAddIbanViewController: {})
         }
     }
 }
