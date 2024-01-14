@@ -11,7 +11,6 @@ import VisionKit
 final class AddIBanViewController: UIViewController {
     
     //MARK: - Properties
-    
     private let viewModel = AddIBanViewModel()
     private let dataScannerManager = DataScannerManager()
     private var currentBank = BankName(rawValue: "")
@@ -248,7 +247,6 @@ final class AddIBanViewController: UIViewController {
             addNewPersonToList(person)
             self.navigationController?.popViewController(animated: true)
             
-            print(person)
         }), for: .touchUpInside)
     }
     

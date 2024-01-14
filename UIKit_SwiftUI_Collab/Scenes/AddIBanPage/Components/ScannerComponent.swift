@@ -30,7 +30,6 @@ class DataScannerManager: NSObject, DataScannerViewControllerDelegate {
         dataScanner.delegate = self
         viewController.present(dataScanner, animated: true) {
             try? dataScanner.startScanning()
-            print("scanner presented")
         }
     }
 
@@ -40,7 +39,6 @@ class DataScannerManager: NSObject, DataScannerViewControllerDelegate {
         switch item {
         case .text(let text):
             delegate?.didScanText(text.transcript)
-            print("scanner read text")
         default:
             print("Unexpected item")
         }

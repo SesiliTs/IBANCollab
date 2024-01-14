@@ -11,10 +11,6 @@ final class IBANListViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var people: [PersonModel] = [
-//        Person(firstName: "John", lastName: "Doe", ibans: ["IBAN1", "IBAN2"]),
-//        Person(firstName: "Alice", lastName: "Smith", ibans: ["IBAN3", "IBAN4"]),
-//        Person(firstName: "aanohn", lastName: "Doe", ibans: ["IBAN1", "IBAN2"]),
-//        Person(firstName: "pohn", lastName: "Doe", ibans: ["IBAN1", "IBAN2"]),
         PersonModel(name: "Andria", ibans: [])
     ]
     
@@ -32,4 +28,11 @@ final class IBANListViewModel: ObservableObject {
     func addPerson(_ newPerson: PersonModel) {
         people.append(newPerson)
     }
+    
+    func isIbanVerified(_ iban: String) -> Bool {
+        let ibanRegex = "^[A-Z]{2}[0-9]{2}[A-Z0-9]+$"
+        let ibanPredicate = NSPredicate(format: "SELF MATCHES %@", ibanRegex)
+        return ibanPredicate.evaluate(with: iban)
+    }
+    
 }

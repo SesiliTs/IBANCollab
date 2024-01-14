@@ -10,10 +10,10 @@ import Foundation
 struct PersonModel: Identifiable {
     let id = UUID()
     var name: String
-    var ibans: [iban]
+    var ibans: [Iban]
 }
 
-struct iban: Identifiable {
+struct Iban: Identifiable {
     let id = UUID()
     let bankName: BankName
     var iban: String

@@ -31,7 +31,12 @@ final class SignUpViewController: UIViewController {
     
     private let usernameTextField: UITextField = CustomUITextField(placeholder: "Username")
     private let emailTextField: UITextField = CustomUITextField(placeholder: "Email")
-    private let passwordTextField: UITextField = CustomUITextField(placeholder: "Password")
+    
+    private let passwordTextField: UITextField = {
+        let textfield = CustomUITextField(placeholder: "Password")
+        textfield.isSecureTextEntry = true
+        return textfield
+    }()
     
     private let signUpButton: UIButton = {
         let button = CustomUIButton(title: "SignUp", hasBackground: true, fontSize: .big)
@@ -112,7 +117,7 @@ final class SignUpViewController: UIViewController {
     }
     
     private func setupBackground() {
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor.init(hexString: "#E5E5E5")
     }
     
     // MARK: - Setup Actions

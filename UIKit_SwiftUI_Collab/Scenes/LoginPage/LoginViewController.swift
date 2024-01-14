@@ -15,7 +15,13 @@ class LoginViewController: UIViewController {
     // MARK: - IBOutlets
 
     private let emailTextField = CustomUITextField(placeholder: "Email")
-    private let passwordTextField = CustomUITextField(placeholder: "Password")
+    
+    private let passwordTextField = {
+        let textField = CustomUITextField(placeholder: "Password")
+        textField.isSecureTextEntry = true
+        return textField
+    }()
+    
     private let loginButton = CustomUIButton(title: "Login", hasBackground: true, fontSize: .medium)
     private let signUpNowButton = {
         let button = CustomUIButton(title: "SignUpNow", hasBackground: true, fontSize: .medium)
@@ -43,7 +49,7 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         signUpNowButton.addTarget(self, action: #selector(signUpNowButtonTapped), for: .touchUpInside)
 
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.init(hexString: "#E5E5E5")
         
         view.addSubview(mainStackView)
         mainStackView.addArrangedSubview(emailTextField)
@@ -71,19 +77,7 @@ class LoginViewController: UIViewController {
                 self?.displayAlert(title: "Log In Error", message: "\(error.localizedDescription)")
                 
             } else {
-                
-//                let ibanListView = IBANListView(navigateToDetailsPage: {person,vm in
-//                    let detailsView = IBanDetailsView(person: person, viewModel: vm) {
-//                        self?.navigationController?.popViewController(animated: true)
-//                    }
-//                    let hostingVC = UIHostingController(rootView: detailsView)
-//                    self?.navigationController?.pushViewController(hostingVC, animated: true)
-//                })
-//                let hostingController = UIHostingController(rootView: ibanListView)
-//                hostingController.navigationItem.hidesBackButton = true
-//                self?.navigationController?.pushViewController(hostingController, animated: true)
                 self?.setupNavigations()
-
             }
         }
     }
