@@ -12,8 +12,8 @@ final class AddIBanViewController: UIViewController {
     
     //MARK: - Properties
     
-    private var viewModel = AddIBanViewModel()
-    private var dataScannerManager = DataScannerManager()
+    private let viewModel = AddIBanViewModel()
+    private let dataScannerManager = DataScannerManager()
     private var currentBank = BankName(rawValue: "")
     private var selectedButton: UIButton?
     
@@ -117,14 +117,18 @@ final class AddIBanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.init(hexString: "#E5E5E5")
-        addSubViews()
-        addConstraints()
+        setUpUI()
         setUpButtons()
-        viewModel.delegate = self
+        setUpDelegate()
     }
     
     //MARK: - Functions
+    
+    private func setUpUI() {
+        view.backgroundColor = UIColor.init(hexString: "#E5E5E5")
+        addSubViews()
+        addConstraints()
+    }
     
     private func addSubViews() {
         
@@ -155,6 +159,10 @@ final class AddIBanViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
         ])
+    }
+    
+    private func setUpDelegate() {
+        viewModel.delegate = self
     }
     
     private func setUpButtons() {
